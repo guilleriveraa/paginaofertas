@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin | Gestionar Promociones</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <!-- Cloudinary Widget -->
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="admin-container">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h1>🔧 Panel de Administración</h1>
+                    <p>Gestiona todas las promociones (añadir, editar, eliminar)</p>
+                </div>
+                <div>
+                    <a href="index.html" class="btn-volver">← Volver al inicio</a>
+                </div>
+            </div>
+
+            <!-- FORMULARIO PARA AÑADIR/EDITAR -->
+            <div class="form-card">
+                <h2 id="form-titulo">➕ Añadir nueva promoción</h2>
+
+                <div class="form-group">
+                    <label>Título de la promoción *</label>
+                    <input type="text" id="titulo" placeholder="Ej: 2x1 en Pizzas">
+                </div>
+
+                <div class="form-group">
+                    <label>Categoría *</label>
+                    <select id="categoria">
+                        <option value="restaurante">🍕 Restaurante</option>
+                        <option value="tienda">🛍️ Tienda</option>
+                        <option value="ocio">🎬 Ocio</option>
+                        <option value="salud">💆 Salud</option>
+                        <option value="otros">✨ Otros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Porcentaje de descuento *</label>
+                    <input type="text" id="descuento" placeholder="Ej: 50%, 2x1, 30%">
+                </div>
+
+                <div class="form-group">
+                    <label>Código de descuento *</label>
+                    <input type="text" id="codigo" placeholder="Ej: PIZZA2X1">
+                </div>
+
+                <div class="form-group">
+                    <label>Descripción *</label>
+                    <textarea id="descripcion" placeholder="Describe la promoción..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de validez *</label>
+                    <input type="text" id="fechaValidez" placeholder="Ej: 31/12/2025">
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre del establecimiento *</label>
+                    <input type="text" id="establecimiento" placeholder="Ej: Pizza House">
+                </div>
+
+                <div class="form-group">
+                    <label>📍 Dirección del establecimiento</label>
+                    <input type="text" id="direccion" placeholder="Ej: Calle Mayor 123, Salamanca">
+                    <small style="color: var(--gray); font-size: 0.7rem;">Opcional - Se mostrará en la página de
+                        detalle</small>
+                </div>
+
+                <!-- CAMPO DE IMAGEN CON CLOUDINARY -->
+                <div class="form-group">
+                    <label>🖼️ Imagen de la promoción</label>
+                    <div class="upload-widget">
+                        <button type="button" id="upload-btn" class="btn-subir-imagen">📤 Subir imagen</button>
+                        <div id="imagen-preview" style="margin-top: 15px; display: none;">
+                            <img id="preview-img" src="" alt="Vista previa"
+                                style="max-width: 150px; border-radius: 8px;">
+                            <button type="button" id="remove-img" class="btn-eliminar-img">🗑️ Eliminar imagen</button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="imagen-url" value="">
+                    <small style="color: var(--gray); font-size: 0.7rem;">La imagen se subirá a Cloudinary
+                        (gratis)</small>
+                </div>
+
+                <input type="hidden" id="editando-id" value="">
+
+                <button class="btn-guardar" onclick="guardarPromocion()">💾 Guardar promoción</button>
+                <button class="btn-cancelar" id="btn-cancelar" style="display:none;" onclick="cancelarEdicion()">❌
+                    Cancelar edición</button>
+            </div>
+
+            <!-- LISTA DE PROMOCIONES EXISTENTES -->
+            <div class="lista-promociones">
+                <h2>📋 Promociones existentes</h2>
+                <div id="lista-promos"></div>
+            </div>
+        </div>
+        <!-- PANEL DE CONTROL DE USOS DE QR -->
+        <div class="form-card">
+            <h2>📊 Control de usos de QR</h2>
+            <p>Gestiona qué dispositivos han usado cada promoción</p>
+
+            <div class="usos-control">
+                <label>Seleccionar promoción:</label>
+                <select id="select-promo-usos" class="select-usos">
+                    <option value="">-- Selecciona una promoción --</option>
+                </select>
+
+                <div id="info-usos" style="margin-top: 15px; display: none;">
+                    <p><strong>📱 Dispositivos que han usado esta promoción:</strong></p>
+                    <div id="lista-dispositivos" class="lista-dispositivos"></div>
+                    <button class="btn-resetear" onclick="resetearUsosPromocion()">🔄 Resetear todos los usos de esta
+                        promoción</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

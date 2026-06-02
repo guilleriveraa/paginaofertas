@@ -1,0 +1,330 @@
+/* ===== ESTILOS EXCLUSIVOS PARA EL PANEL ADMIN ===== */
+
+.admin-container {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.admin-container h1 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.admin-container p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+.btn-volver {
+    display: inline-block;
+    background: var(--gray);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+}
+
+.btn-volver:hover {
+    background: var(--dark);
+}
+
+.form-card {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+}
+
+.form-card h2 {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-guardar {
+    background: linear-gradient(135deg, var(--secondary), #059669);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.btn-guardar:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-cancelar {
+    background: var(--gray);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+    background: var(--dark);
+}
+
+.lista-promociones {
+    margin-top: 2rem;
+}
+
+.lista-promociones h2 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.promo-item {
+    background: var(--light-gray);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transition: all 0.2s;
+}
+
+.promo-item:hover {
+    background: #e2e8f0;
+    transform: translateX(5px);
+}
+
+.promo-info {
+    flex: 1;
+}
+
+.promo-info strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.promo-info small {
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.promo-acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-editar, .btn-eliminar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-editar {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-editar:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.btn-eliminar {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 1rem;
+    }
+    
+    .form-card {
+        padding: 1rem;
+    }
+    
+    .promo-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .promo-acciones {
+        justify-content: center;
+    }
+}
+/* ===== ESTILOS PARA CLOUDINARY ===== */
+
+.upload-widget {
+    margin: 10px 0;
+}
+
+.btn-subir-imagen {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-subir-imagen:hover {
+    background: var(--primary-dark);
+    transform: scale(1.02);
+}
+
+.btn-eliminar-img {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.btn-eliminar-img:hover {
+    background: #dc2626;
+}
+
+#imagen-preview {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: var(--gray-light);
+    border-radius: 8px;
+}
+/* ===== PANEL DE CONTROL DE USOS ===== */
+.select-usos {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+}
+
+.lista-dispositivos {
+    background: var(--gray-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.device-item {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.device-item code {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.dispositivo-stats p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.btn-resetear {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+}
+
+.btn-resetear:hover {
+    background: #dc2626;
+}
+
+.aviso-usado {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.aviso-usado strong {
+    color: #92400e;
+}

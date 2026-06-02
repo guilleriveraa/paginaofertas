@@ -1,0 +1,567 @@
+/* ===== VARIABLES Y RESET (Inspirado en SalamancaVivela) ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de colores principal - Tierra y tradición */
+    --primary: #b87333;        /* Cobre / Terracota (Acento principal) */
+    --primary-dark: #8b5a2b;   /* Terracota más oscuro */
+    --primary-light: #f4e0c8;  /* Crema / Piel de trigo */
+    --secondary: #6f4e2e;      /* Marrón madera */
+    --dark: #2c241a;           /* Casi negro cálido */
+    --gray: #6b5c4f;           /* Gris cálido (piedra) */
+    --gray-light: #e8e0d5;     /* Gris muy claro (calizo) */
+    --white: #fffcf8;          /* Blanco roto (papel artesano) */
+    --danger: #c45c4c;         /* Rojo terroso para eliminar */
+    --success: #5a7a5a;        /* Verde oliva */
+    
+    /* Sombras y bordes */
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+    --radius-sm: 6px;
+    
+    /* Tipografía */
+    --font-serif: 'Georgia', 'Times New Roman', Times, serif;
+    --font-sans: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--white);
+    background-image: radial-gradient(circle at 10% 20%, rgba(184, 114, 51, 0.02) 0%, transparent 50%);
+    color: var(--dark);
+    line-height: 1.5;
+    padding: 2rem 1rem;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER (Estilo tienda local) ===== */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.header h1 {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--primary-dark);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+}
+
+.btn-admin {
+    display: inline-block;
+    background-color: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-admin:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===== BUSCADOR (Estilo elegante) ===== */
+.buscador-container {
+    max-width: 550px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.buscador {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.buscador input {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 60px;
+    font-size: 1rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    font-family: var(--font-sans);
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(184, 114, 51, 0.1);
+}
+
+.btn-limpiar {
+    background: var(--gray-light);
+    color: var(--gray);
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 60px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-limpiar:hover {
+    background: var(--gray);
+    color: white;
+}
+
+.resultado-busqueda {
+    text-align: center;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-style: italic;
+}
+
+/* ===== ESTADÍSTICAS ===== */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 0.5rem 1.3rem;
+    border-radius: 50px;
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-light);
+}
+
+/* ===== FILTROS (Categorías) ===== */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filtro-btn {
+    background: transparent;
+    border: 1px solid var(--gray-light);
+    padding: 0.5rem 1.3rem;
+    border-radius: 40px;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.filtro-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.filtro-btn.activo {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* ===== GRID DE TARJETAS (Productos) ===== */
+.entradas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* ===== TARJETA (Estilo artesanal) ===== */
+.card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-light);
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Badges */
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.descuento-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--success);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.card-content {
+    padding: 1.6rem;
+    padding-top: 3.2rem;
+}
+
+.card h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.card-categoria {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.card-description {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+/* Código */
+.codigo-container {
+    background: var(--primary-light);
+    padding: 0.6rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.codigo-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--secondary);
+    letter-spacing: 1px;
+}
+
+.codigo-value {
+    font-family: 'Courier New', monospace;
+    font-weight: 800;
+    background: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.codigo-value:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.fecha {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-qr {
+    width: 100%;
+    background: white;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    padding: 0.7rem;
+    border-radius: 60px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-qr:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.02);
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 36, 26, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%;
+    border: 1px solid var(--primary-light);
+}
+
+.modal-content img {
+    max-width: 230px;
+    margin: 1rem auto;
+}
+
+.modal-close {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 60px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    z-index: 1100;
+    box-shadow: var(--shadow);
+}
+
+/* ===== ANIMACIONES SUAVES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.entradas-grid {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .entradas-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .card-content {
+        padding: 1.2rem;
+        padding-top: 2.8rem;
+    }
+
+    .filtro-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .stat-card {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    .buscador input {
+        font-size: 0.9rem;
+    }
+}
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #1a1a1a;
+    border-radius: var(--radius);
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    color: var(--gray);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--gray-light);
+    background: transparent;
+}
+
+/* ===== FOOTER LINKS ===== */
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: transparent;
+    padding: 0;
+}
+
+.footer-links a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+/* ===== BOTONES DE COMPARTIR ===== */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: white;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+}
+
+.share-whatsapp {
+    background: #25D366;
+}
+
+.share-whatsapp:hover {
+    background: #128C7E;
+}
+
+.share-facebook {
+    background: #1877F2;
+}
+
+.share-facebook:hover {
+    background: #0C63D4;
+}
+
+.share-twitter {
+    background: #1DA1F2;
+}
+
+.share-twitter:hover {
+    background: #0D8BD9;
+}
+
+.share-telegram {
+    background: #0088cc;
+}
+
+.share-telegram:hover {
+    background: #006699;
+}
+
+.share-copy {
+    background: #6B7280;
+}
+
+.share-copy:hover {
+    background: #4B5563;
+}

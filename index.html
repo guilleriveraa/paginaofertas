@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Promociones Exclusivas | Descuentos con QR</title>
+    <link rel="stylesheet" href="cookies.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎁 Promociones Exclusivas</h1>
+            <p>Escanea el QR y obtén tu descuento en el establecimiento</p>
+            <a href="admin.html" class="btn-admin" id="btnAdmin" style="display: none;">🔧 Panel de Administración</a>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="buscador-container">
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="🔍 Buscar promociones por nombre, establecimiento o código..." autocomplete="off">
+                <button id="btnLimpiarBusqueda" class="btn-limpiar" style="display: none;">✖️ Limpiar</button>
+            </div>
+            <div class="resultado-busqueda" id="resultadoBusqueda"></div>
+        </div>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="stats" id="stats-container">
+            <div class="stat-card">🏷️ Cargando...</div>
+            <div class="stat-card">⭐ Hasta 50% de descuento</div>
+            <div class="stat-card">📱 QR válido por tiempo limitado</div>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filtros">
+            <button class="filtro-btn activo" data-filtro="todos">📋 Todos</button>
+            <button class="filtro-btn" data-filtro="restaurante">🍕 Restaurantes</button>
+            <button class="filtro-btn" data-filtro="tienda">🛍️ Tiendas</button>
+            <button class="filtro-btn" data-filtro="ocio">🎬 Ocio</button>
+            <button class="filtro-btn" data-filtro="salud">💆 Salud</button>
+            <button class="filtro-btn" data-filtro="otros">✨ Otros</button>
+        </div>
+
+        <!-- GRID DE ENTRADAS -->
+        <div id="entradas-grid" class="entradas-grid"></div>
+
+        <!-- FOOTER -->
+<div class="footer">
+    <p>© 2025 Promociones Exclusivas - Todos los derechos reservados</p>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Los códigos QR son válidos solo en los establecimientos participantes</p>
+    <div class="footer-links">
+        <a href="aviso-legal.html">📄 Aviso Legal</a>
+        <a href="javascript:void(0)" onclick="abrirGestionCookies()">🍪 Configurar cookies</a>
+    </div>
+</div>
+
+    <!-- MODAL PARA QR GRANDE -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-titulo">Código QR</h3>
+            <img id="modal-qr-img" src="" alt="QR code">
+            <p id="modal-codigo" style="margin: 1rem 0; font-family: monospace; font-size: 1.2rem;"></p>
+            <button class="modal-close" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cookies.js"></script>
+
+</body>
+</html>

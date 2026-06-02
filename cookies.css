@@ -1,0 +1,70 @@
+/* cookies.css */
+.cookie-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cookie-popup .cookie-box {
+    background: white;
+    width: 350px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cookie-popup .cookie-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cookie-popup .cookie-box p {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.cookie-popup .cookie-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cookie-popup .cookie-buttons button {
+    background: none;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: #555;
+    padding: 5px 0;
+}
+
+.cookie-popup .cookie-buttons button:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.cookie-popup .cookie-buttons .aceptar-todas {
+    color: #000;
+    font-weight: bold;
+}
+
+.cookie-popup .cookie-separator {
+    color: #ccc;
+    font-size: 13px;
+}
